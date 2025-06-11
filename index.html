@@ -4,98 +4,179 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pilot Sunucular</title>
+  <!-- İsteğe bağlı: Google Fonts kullanmak istersen -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
   <style>
+    /* 1. Body’ye arkaplan resmi ekleme.
+       - background.jpg dosyasını repo köküne ekledikten sonra çalışır.
+       - Eğer farklı klasör kullanacaksan URL’yi buna göre güncelle. */
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+      /* Arkaplan: tüm ekrana yayılacak şekilde */
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      /* Metin rengini container içinde döndüreceğiz; direkt body metin rengi koymak yerine 
+         container/overlay renk ataması yapacağız */
+      font-family: 'Roboto', sans-serif;
+    }
+    /* 2. Üzerine yarı saydam koyu bir katman ekleyerek okunabilirliği artırıyoruz */
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh; /* tüm ekran boyu */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px; /* mobilde kenarlarda boşluk */
+    }
+    /* 3. İçerik kutusu: beyaz arkaplan, hafif gölge, yuvarlak köşe */
+    .container {
       max-width: 600px;
-      margin: auto;
-      background: #f9f9f9;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
       color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      padding: 20px 30px;
     }
+    /* 4. Başlıklar */
     h1 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+      font-size: 1.8rem;
+      margin: 0 0 10px 0;
+      text-align: center;
+      font-weight: 500;
     }
+    h2 {
+      font-size: 1.4rem;
+      margin: 20px 0 10px 0;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      font-weight: 500;
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin: 15px 0 8px 0;
+      font-weight: 500;
+      /* İstersen alt başlıkların yanına bir emoji ekleyebilirsin, örn: “📂 CSDuragi” */
+    }
+    /* 5. Liste stili */
     ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
     li {
       margin: 8px 0;
       display: flex;
       align-items: center;
     }
+    /* Renkli daire için .badge sınıfı */
     .badge {
       display: inline-block;
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      margin-right: 8px;
+      margin-right: 10px;
+      flex-shrink: 0;
     }
+    /* Renkler: kırmızı ve turuncu yerine istersen farklı tonlar da */
     .badge-red {
-      background-color: red;
+      background-color: #e74c3c;
     }
     .badge-orange {
-      background-color: orange;
+      background-color: #e67e22;
     }
+    /* Eğer başka renk eklemek istersen: 
+    .badge-green { background-color: #27ae60; } 
+    .badge-blue  { background-color: #3498db; } 
+    */
+    /* Link stili */
     a {
-      text-decoration: none;
       color: #0066cc;
+      text-decoration: none;
+      font-weight: 500;
     }
     a:hover {
       text-decoration: underline;
     }
+    /* Mobilde yazıların ve liste öğelerinin sığması için */
+    @media (max-width: 500px) {
+      .container {
+        padding: 15px 20px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+      }
+      li {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>🚀 fernpasha's Pilot Servers for CS 1.6</h1>
-  <ul>
-    <li>
-      <span class="badge badge-red"></span>
-      <a href="steam://connect/213.238.173.3:27015">TRBC Pro Public(CSD)</a>
-    </li>
-    <li>
-      <span class="badge badge-red"></span>
-      <a href="steam://connect/213.238.173.206:27015">SBW Pro Public(CSD)</a>
-    </li>
-    <li>
-      <span class="badge badge-red"></span>
-      <a href="steam://connect/213.238.173.20:27015">Jetaime Gungame (CSD)</a>
-    </li>
-    <li>
-      <span class="badge badge-orange"></span>
-      <a href="steam://connect/95.173.173.11:27015">ReckLesS Pro Public(OYT)</a>
-    </li>
-    <li>
-      <span class="badge badge-orange"></span>
-      <a href="steam://connect/95.173.174.11:27015">ReckLesS Match(OYT)</a>
-    </li>
-    <li>
-      <span class="badge badge-orange"></span>
-      <a href="steam://connect/95.173.173.24:27015">FastDraw CS2 Mode(OYT)</a>
-    </li>
-    <li>
-      <span class="badge badge-orange"></span>
-      <a href="steam://connect/95.173.173.131:27015">FastDraw Zombie Escape(OYT)</a>
-    </li>
-    <li>
-      <span class="badge badge-orange"></span>
-      <a href="steam://connect/95.173.174.10:27015">FastDraw Match(OYT)</a>
-    </li>
-  </ul>
-  <!-- 
-    Yeni sunucu eklemek istersen:
-    <li>
-      <span class="badge badge-RENK"></span>
-      <a href="steam://connect/IP_ADRESI_YENI:PORT">Sunucu Adi</a>
-    </li>
-    Renk icin .badge-red veya .badge-orange yerine .badge-green, .badge-blue vs tanimlamak istiyorsan
-    <style> icine:
-      .badge-green { background-color: green; }
-      .badge-blue  { background-color: blue; }
-    ekleyin.
-  -->
+  <!-- overlay, arkaplanda resmin üzerine koyu filtre görevi görür -->
+  <div class="overlay">
+    <div class="container">
+      <!-- Ana Başlık -->
+      <h1>🚀 fernpasha's Pilot Servers</h1>
+      <!-- Alt Başlık -->
+      <h2>Counter Strike 1.6 Servers</h2>
+
+      <!-- CSDurağı Grubu -->
+      <h3>CSDuragi</h3>
+      <ul>
+        <li>
+          <span class="badge badge-red"></span>
+          <a href="steam://connect/213.238.173.3:27015">TRBC Pro Public (CSD)</a>
+        </li>
+        <li>
+          <span class="badge badge-red"></span>
+          <a href="steam://connect/213.238.173.206:27015">SBW Pro Public (CSD)</a>
+        </li>
+        <li>
+          <span class="badge badge-red"></span>
+          <a href="steam://connect/213.238.173.20:27015">Jetaime Gungame (CSD)</a>
+        </li>
+      </ul>
+
+      <!-- Oyun Yöneticisi Grubu -->
+      <h3>OyunYoneticisi</h3>
+      <ul>
+        <li>
+          <span class="badge badge-orange"></span>
+          <a href="steam://connect/95.173.173.11:27015">ReckLesS Pro Public (OYT)</a>
+        </li>
+        <li>
+          <span class="badge badge-orange"></span>
+          <a href="steam://connect/95.173.174.11:27015">ReckLesS Match (OYT)</a>
+        </li>
+        <li>
+          <span class="badge badge-orange"></span>
+          <a href="steam://connect/95.173.173.24:27015">FastDraw CS2 Mode (OYT)</a>
+        </li>
+        <li>
+          <span class="badge badge-orange"></span>
+          <a href="steam://connect/95.173.173.131:27015">FastDraw Zombie Escape (OYT)</a>
+        </li>
+        <li>
+          <span class="badge badge-orange"></span>
+          <a href="steam://connect/95.173.174.10:27015">FastDraw Match (OYT)</a>
+        </li>
+      </ul>
+
+      <!-- İsteğe bağlı: Alt kısımda açıklama veya iletişim bilgisi ekleyebilirsin -->
+      <!-- 
+      <p style="margin-top:20px; font-size:0.9rem; color:#555;">
+        Daha fazla bilgi için Discord: fernpasha#1234 veya Web: https://fernpasha.example.com
+      </p>
+      -->
+    </div>
+  </div>
 </body>
 </html>
